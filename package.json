@@ -1,25 +1,31 @@
 {
   "name": "bev-tasks",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Common BEV Mobile tasks",
-  "main": "index.js",
+  "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ciceksepeti/bev-tasks.git"
+    "url": "git://github.com/ciceksepeti/bev-tasks"
   },
-  "author": "",
+  "author": {
+    "name": "Okan Cetin"
+  },
   "license": "ISC",
-    "devDependencies": {
+  "bugs": {
+    "url": "https://github.com/ciceksepeti/bev-tasks/issues"
+  },
+  "homepage": "https://github.com/ciceksepeti/bev-tasks",
+  "dependencies": {
     "preprocess": "^2.0.0",
     "fs-extra": "^0.11.1",
     "concat-files": "^0.1.0",
     "concatenate-files": "^0.1.1"
-    },
-  "bugs": {
-    "url": "https://github.com/ciceksepeti/bev-tasks/issues"
   },
-  "homepage": "https://github.com/ciceksepeti/bev-tasks"
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-cli": "~0.1.6" 
+  }
 }
