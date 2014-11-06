@@ -7,6 +7,7 @@
 'use strict';
 
 var pp = require('preprocess');
+var _ = require('underscore');
 
 module.exports = function(grunt) {
 
@@ -19,6 +20,7 @@ module.exports = function(grunt) {
             var platforms = config.platforms;
             var dest = config.dest;
             var tmpl = grunt.file.read(src);
+            var callback = config.callback;
 
             ////Custom delimiters
             //grunt.template.addDelimiters('customDelimiters', '<#', '#>');
@@ -30,14 +32,12 @@ module.exports = function(grunt) {
 
                     devices.forEach(function (device,di) {
                         var outFile = [dest, platform, device].join('/') + '.html';
-                        var content = pp.preprocess(tmpl,
-                            {
-                                device: device,
-                                platform: platform,
-                                environment: grunt.config('env'),
-                                postfix: grunt.config('isProd') ? '.min' : '',
-                                serverPath: platform == 'web' ? [dest, , platform, ''].join('/') : ''
-                            });
+                        var config = _.extend({
+                          device: device,
+                          platform: platform,
+                        },callback ? callback(device,platform,dest,src) : {});
+                        
+                        var content = pp.preprocess(tmpl, config);
 
                         grunt.file.write(outFile, content);
                         grunt.log.ok('File generated for [' +  platform[['magenta','grey'][pi]] + '|' + device['cyan'] + '] \t in ' + outFile);
