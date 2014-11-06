@@ -1,6 +1,6 @@
 {
   "name": "bev-tasks",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Common BEV Mobile tasks",
   "main": "Gruntfile.js",
   "scripts": {
@@ -22,10 +22,11 @@
     "preprocess": "^2.0.0",
     "fs-extra": "^0.11.1",
     "concat-files": "^0.1.0",
-    "concatenate-files": "^0.1.1"
+    "concatenate-files": "^0.1.1",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "grunt": "~0.4.0",
-    "grunt-cli": "~0.1.6" 
+    "grunt-cli": "~0.1.6"
   }
 }
