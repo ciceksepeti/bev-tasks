@@ -8,14 +8,13 @@
 
 var fse = require('fs-extra');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  
-      grunt.registerTask('contents', 'Copy contents to related paths', function () {
+    grunt.registerTask('contents', 'Copy contents to related paths', function () {
         var config = grunt.config('contents');
         var dest = config.dest;
         var src = config.src;
-        var version = grunt.config('isProd') ? 'min' : 'orj';
+        var version = config.version || 'orj';
 
         for (var key in src) {
             grunt.log.writeln(JSON.stringify(key)['cyan']);

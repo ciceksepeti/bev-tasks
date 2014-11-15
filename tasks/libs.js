@@ -10,17 +10,17 @@ var concat = require('concatenate-files');
 var fse = require('fs-extra');
 
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  grunt.registerTask('libs', 'Concat and min project libs then copy to related paths', function () {
+    grunt.registerTask('libs', 'Concat and min project libs then copy to related paths', function () {
         var config = grunt.config('libs');
         var dest = config.dest;
         var src = config.src;
         var cwd = config.cwd;
-        var version = grunt.config('isProd') ? 'min' : 'orj';
+        var version = config.version || 'orj';
 
         var srcFiles = [];
-        
+
         try {
             var destFile = [dest, 'libs.js'].join('/');
             for (var file in src) {
